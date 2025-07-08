@@ -10,9 +10,9 @@ rss_feeds:
     url: "https://www.codeur.com/projects?format=rss&keywords=Scraping&order=most_recent"
     color: 0x00ff00  # Couleur verte pour les embeds
   # Ajouter d'autres flux ici
-  # - name: "Python"
-  #   url: "https://www.codeur.com/projects?format=rss&keywords=Python&order=most_recent"
-  #   color: 0x3776ab
+  - name: "IA"
+    url: "https://www.codeur.com/projects?c=ia&format=rss&keywords=Scraping&order=most_recent"
+    color: 0x3776ab
 
 # Paramètres de surveillance
 surveillance:
