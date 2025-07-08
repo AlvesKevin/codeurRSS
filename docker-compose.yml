@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mission-bot:
+    build: .
+    container_name: codeur-mission-bot
+    restart: unless-stopped
+    
+    # Variables d'environnement
+    environment:
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - DISCORD_USERNAME=${DISCORD_USERNAME:-Bot Missions Codeur}
+      - DISCORD_AVATAR_URL=${DISCORD_AVATAR_URL}
+      - CHECK_INTERVAL_MINUTES=${CHECK_INTERVAL_MINUTES:-5}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    
+    # Monter les volumes pour la persistence
+    volumes:
+      - ./data:/app/data
+      - ./config.yaml:/app/config.yaml:ro
+      - ./logs:/app/logs
+    
+    # Limites de ressources
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+    
+    # Santé du conteneur
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Service optionnel pour monitorer les logs
+  # Décommentez si vous voulez un interface web pour voir les logs
+  # log-viewer:
+  #   image: amir20/dozzle:latest
+  #   container_name: mission-bot-logs
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock:ro
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     DOZZLE_FILTER: "name=codeur-mission-bot"
+
+volumes:
+  bot-data:
+    driver: local 

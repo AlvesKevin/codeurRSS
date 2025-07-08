@@ -1,0 +1,24 @@
+# Configuration du bot Discord RSS
+discord:
+  webhook_url: "https://discord.com/api/webhooks/1392100091266859038/QG0a8WlQwUldOJfvuqTa7YpmjC8LKybN1mcSUOLdkujCKythGAbd1e3VpfjWLbtmClRwL"
+  username: "Bot Missions Codeur"
+  avatar_url: "https://www.codeur.com/favicon.ico"
+
+# Flux RSS à surveiller
+rss_feeds:
+  - name: "Scraping"
+    url: "https://www.codeur.com/projects?format=rss&keywords=Scraping&order=most_recent"
+    color: 0x00ff00  # Couleur verte pour les embeds
+  # Ajouter d'autres flux ici
+  # - name: "Python"
+  #   url: "https://www.codeur.com/projects?format=rss&keywords=Python&order=most_recent"
+  #   color: 0x3776ab
+
+# Paramètres de surveillance
+surveillance:
+  check_interval_minutes: 5  # Vérifier toutes les 5 minutes
+  max_items_per_check: 10    # Traiter maximum 10 nouveaux items par vérification
+
+# Stockage des données
+storage:
+  data_file: "missions_seen.json"  # Fichier pour stocker les missions déjà vues 

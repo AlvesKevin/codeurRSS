@@ -1,0 +1,49 @@
+# Fichiers de développement
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+.Python
+
+# Environnements virtuels
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Fichiers de configuration locale
+.env
+*.log
+missions_seen.json
+
+# Répertoires de données
+data/
+logs/
+
+# Fichiers Git
+.git/
+.gitignore
+
+# Documentation et fichiers de développement
+README.md
+*.md
+.vscode/
+.idea/
+
+# Fichiers Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Fichiers de test
+test_*
+*_test.py
+tests/
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.swp
+.DS_Store 
