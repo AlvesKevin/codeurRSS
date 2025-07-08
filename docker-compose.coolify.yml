@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mission-bot:
+    build: .
+    restart: unless-stopped
+    
+    # Variables d'environnement - À configurer dans Coolify
+    environment:
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - DISCORD_USERNAME=${DISCORD_USERNAME:-Bot Missions Codeur}
+      - DISCORD_AVATAR_URL=${DISCORD_AVATAR_URL:-https://www.codeur.com/favicon.ico}
+      - CHECK_INTERVAL_MINUTES=${CHECK_INTERVAL_MINUTES:-5}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    
+    # Volume pour la persistence des données
+    volumes:
+      - mission_data:/app/data
+    
+    # Limites de ressources
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+    
+    # Santé du conteneur
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('https://httpbin.org/status/200', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  mission_data:
+    driver: local 

@@ -1,6 +1,6 @@
 # Configuration du bot Discord RSS
 discord:
-  webhook_url: "https://discord.com/api/webhooks/1392100091266859038/QG0a8WlQwUldOJfvuqTa7YpmjC8LKybN1mcSUOLdkujCKythGAbd1e3VpfjWLbtmClRwL"
+  webhook_url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
   username: "Bot Missions Codeur"
   avatar_url: "https://www.codeur.com/favicon.ico"
 
@@ -21,4 +21,4 @@ surveillance:
 
 # Stockage des données
 storage:
-  data_file: "missions_seen.json"  # Fichier pour stocker les missions déjà vues 
+  data_file: "/app/data/missions_seen.json"  # Fichier pour stocker les missions déjà vues 

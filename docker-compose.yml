@@ -14,11 +14,9 @@ services:
       - CHECK_INTERVAL_MINUTES=${CHECK_INTERVAL_MINUTES:-5}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
     
-    # Monter les volumes pour la persistence
+    # Volumes pour la persistence des données uniquement
     volumes:
-      - ./data:/app/data
-      - ./config.yaml:/app/config.yaml:ro
-      - ./logs:/app/logs
+      - bot-data:/app/data
     
     # Limites de ressources
     deploy:

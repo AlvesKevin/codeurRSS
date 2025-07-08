@@ -21,13 +21,13 @@ COPY *.py ./
 COPY config.yaml ./
 COPY .env.example ./
 
+# Créer le répertoire pour les données persistantes
+RUN mkdir -p /app/data
+
 # Créer un utilisateur non-root pour la sécurité
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 RUN chown -R appuser:appuser /app
 USER appuser
-
-# Créer le répertoire pour les données persistantes
-RUN mkdir -p /app/data
 
 # Point d'entrée par défaut
 CMD ["python", "main.py"]
